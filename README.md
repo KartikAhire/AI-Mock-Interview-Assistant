@@ -42,7 +42,6 @@ python app.py
 
 ## 🌍 Live Demo
 
-(Deploy karne ke baad yaha link daalna)
 
 ---
 
