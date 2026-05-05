@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview & English Coach "TONYNK-AI"</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div id="loader" class="active">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+        <div id="welcome-screen" class="screen">
+            <div class="welcome-content">
+                <h1 class="welcome-title">Welcome to Your AI Coach for the interview</h1>
+                <p class="welcome-subtitle">Prepare for your dream job with realistic mock interviews and personalized feedback.</p>
+                <div id="hardware-test-area" style="display: none;">
+                    <video id="test-video" autoplay muted></video>
+                    <canvas id="mic-visualizer" width="200" height="50"></canvas>
+                    <p id="hardware-status"></p>
+                </div>
+                <button id="test-hardware-btn" class="main-btn">
+                    <i class="fas fa-video"></i> Test Camera & Mic
+                </button>
+                <button id="go-to-setup-btn" class="main-btn" disabled>
+                    Let's Get Started <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="setup-screen" class="screen">
+            <div class="setup-header">
+                <h2>Session Setup</h2>
+                <p>Customize your practice session.</p>
+            </div>
+            <div class="setup-grid">
+                <div class="setup-card">
+                    <h3><span class="step-number">1</span> Your Details</h3>
+                    <div class="form-group">
+                        <label>Upload Resume (PDF)</label>
+                        <input type="file" id="resume-file" accept=".pdf" style="display: none;">
+                        <button id="upload-btn" class="main-btn">Choose File</button>
+                        <p id="upload-status"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-title">Target Job Profile</label>
+                        <select id="job-title">
+                            <option value="Full Stack Web Developer">Full Stack Developer</option>
+                            <option value="Data Scientist">Data Scientist</option>
+                            <option value="Software Engineer (DSA-focused)">Software Engineer (DSA)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setup-card">
+                    <h3><span class="step-number">2</span> Select Your Session</h3>
+                    <div class="form-group">
+                        <label>Session Type</label>
+                        <div class="option-group" id="interview-round">
+                            <button class="option-btn active" data-value="Technical Interview">Technical Interview</button>
+                            <button class="option-btn" data-value="Behavioral Interview">Behavioral Interview</button>
+                            <button class="option-btn" data-value="English Practice">English Practice</button>
+                            <button class="option-btn" data-value="DSA Quiz">DSA Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="start-interview-btn" class="main-btn" disabled>Start Session</button>
+        </div>
+
+        <div id="interview-screen" class="screen">
+            <div class="video-panel">
+                <video id="user-video" autoplay muted></video>
+                <p class="video-label">You</p>
+                <img src="https://img.freepik.com/premium-photo/software-engineer-digital-avatar-generative-ai_934475-8997.jpg" alt="AI Interviewer" id="ai-avatar">
+                <p class="video-label" id="ai-name-label">Sarah (AI Coach)</p>
+                <div id="timer-display" style="display: none;">30</div>
+                <button id="end-interview-btn" class="main-btn danger"><i class="fas fa-flag-checkered"></i> End Session</button>
+            </div>
+            <div class="chat-panel">
+                <div class="chat-window" id="chat-window">
+                    </div>
+                <div class="interaction-section">
+                    <p id="mic-status">Click mic to start speaking</p>
+                    <div class="action-buttons">
+                        <button id="think-btn" class="action-btn" title="Take a moment to think"><i class="fas fa-brain"></i></button>
+                        <button id="mic-btn" title="Speak / Interrupt AI"><i class="fas fa-microphone"></i></button>
+                        <button id="repeat-btn" class="action-btn" title="Repeat the question"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="feedback-screen" class="screen">
+            <div class="feedback-header">
+                <h2>Session Report</h2>
+                <p>Here is a detailed analysis of your performance.</p>
+            </div>
+            <div class="feedback-content" id="feedback-content">
+                </div>
+            <button id="restart-btn" class="main-btn">Start New Session</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
