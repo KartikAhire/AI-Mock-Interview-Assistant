@@ -25,7 +25,8 @@ An AI-powered mock interview platform that helps students prepare for real-world
 
 ## 📸 Screenshots
 
-(Add screenshots here after deployment)
+<img width="830" height="478" alt="Screenshot 2026-05-06 094408" src="https://github.com/user-attachments/assets/71761500-defc-45d5-b07c-b5c873f5c70a" />
+
 
 ---
 
